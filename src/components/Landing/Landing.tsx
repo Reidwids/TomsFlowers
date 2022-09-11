@@ -62,7 +62,6 @@ export default function Landing() {
 					alignItems: "center",
 					inset: "0",
 					zIndex: "2",
-					backgroundColor: "red",
 				}}
 				initial="initial"
 				animate="animate"
