@@ -5,16 +5,6 @@ import Landing from "../Landing/Landing";
 import { useTheme } from "@mui/material";
 import { AnimatePresence } from "framer-motion";
 
-const blackBox = {
-	initial: {
-		height: "100vh",
-		bottom: 0,
-	},
-	animate: {
-		height: 0,
-	},
-};
-
 export default function Base() {
 	// Variables //
 	const location = useLocation();

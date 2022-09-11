@@ -1,40 +1,39 @@
 import React from "react";
 import Rose from "../../assets/icons/Rose.svg";
 import TomsFlowersNoRose from "../../assets/images/TomsFlowersNoRose.svg";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
-
-const whiteBox = {
-	initial: {
-		opacity: 1,
-	},
-	animate: {
-		opacity: 0,
-		transition: {
-			delay: 3.5,
-			duration: 3,
-			ease: [0.87, 0, 0.13, 1],
-		},
-	},
-};
-
-const logoTransition = {
-	initial: {
-		height: "100vh",
-	},
-	animate: {
-		height: "100px",
-		transition: {
-			delay: 3,
-			duration: 2,
-			ease: "easeInOut",
-		},
-	},
-};
 
 export default function Landing() {
 	// Variables //
-
+	const isDesktop = useMediaQuery("(min-width:600px)");
+	const whiteBox = {
+		initial: {
+			opacity: 1,
+		},
+		animate: {
+			opacity: 0,
+			transition: {
+				delay: 3.5,
+				duration: 3,
+				ease: [0.87, 0, 0.13, 1],
+			},
+		},
+	};
+	console.log(isDesktop);
+	const logoTransition = {
+		initial: {
+			height: "100vh",
+		},
+		animate: {
+			height: isDesktop ? "100px" : "60px",
+			transition: {
+				delay: 3,
+				duration: 2,
+				ease: "easeInOut",
+			},
+		},
+	};
 	// Functions //
 
 	// Use Effects //
@@ -42,6 +41,7 @@ export default function Landing() {
 	// Render //
 	return (
 		<>
+			{/* Page Container */}
 			<Box
 				sx={{
 					height: "100vh",
@@ -62,17 +62,18 @@ export default function Landing() {
 					alignItems: "center",
 					inset: "0",
 					zIndex: "2",
+					backgroundColor: "red",
 				}}
 				initial="initial"
 				animate="animate"
 				variants={logoTransition}
 			>
-				{/* Shrink width to fit navheight */}
+				{/* Shrink full logo width to fit navheight */}
 				<motion.div
 					style={{ position: "relative" }}
 					initial={{ width: "60%" }}
 					animate={{
-						width: "30%",
+						width: isDesktop ? "350px" : "150px",
 						transition: {
 							delay: 3,
 							duration: 2,
@@ -80,7 +81,7 @@ export default function Landing() {
 						},
 					}}
 				>
-					{/* Fade in logo on page load */}
+					{/* Fade in flowerless logo on page load */}
 					<motion.img
 						src={TomsFlowersNoRose}
 						style={{ width: "100%" }}
