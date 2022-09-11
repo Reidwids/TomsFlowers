@@ -11,8 +11,9 @@ import {
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { theme } from "../../../App";
+import "./LandingBody.scss";
 type PropTypes = {
   isDesktop: boolean;
 };
@@ -22,7 +23,7 @@ export default function LandingBody({ isDesktop }: PropTypes) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Flex h="100vh" bgColor="lightblue" w="100%" justify={"center"}>
+    <Flex h="100vh" bgColor="white" w="100%" justify={"center"}>
       <Box maxW={"1200px"} w="100%" color="flowerPink">
         <motion.div
           style={{ width: "100%" }}
@@ -47,10 +48,7 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                 _hover={{
                   fontWeight: "600",
                 }}
-                cursor="pointer"
-                fontSize="18px"
-                position="relative"
-                zIndex={3}
+                className="hover-underline-animation"
                 onClick={() => navigate("#About")}
               >
                 About
@@ -59,10 +57,7 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                 _hover={{
                   fontWeight: "600",
                 }}
-                cursor="pointer"
-                fontSize="18px"
-                position="relative"
-                zIndex={3}
+                className="hover-underline-animation"
                 onClick={() => navigate("#LocationHours")}
               >
                 Location & Hours
@@ -74,7 +69,7 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                 h={isDesktop ? "100px" : "60px"}
                 justify="space-between"
                 align="center"
-                m="0 30px"
+                m="0 10px"
                 zIndex={3}
               >
                 <IconButton
@@ -99,12 +94,12 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                   display={isDesktop ? "none" : "block"}
                   bg="white"
                 >
-                  <Stack spacing={4} onClick={onToggle}>
+                  <Stack spacing={3} onClick={onToggle}>
                     <Flex
                       py={2}
                       zIndex={3}
-                      as={Link}
-                      href={""}
+                      onClick={() => navigate("#About")}
+                      cursor={"pointer"}
                       justify={"space-between"}
                       align={"center"}
                       _hover={{
@@ -116,9 +111,9 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                     <hr color={theme.colors.flowerPink} />
                     <Flex
                       py={2}
+                      cursor={"pointer"}
                       zIndex={3}
-                      as={Link}
-                      href={""}
+                      onClick={() => navigate("#LocationHours")}
                       justify={"space-between"}
                       align={"center"}
                       _hover={{

@@ -61,7 +61,7 @@ export default function LandingAnimation({ isDesktop }: PropTypes) {
           style={{ position: "relative" }}
           initial={{ width: "60%" }}
           animate={{
-            width: isDesktop ? "350px" : "150px",
+            width: isDesktop ? "350px" : "200px",
             transition: {
               delay: 3,
               duration: 2,
