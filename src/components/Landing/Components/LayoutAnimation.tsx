@@ -1,4 +1,3 @@
-import React from "react";
 import Rose from "../../../assets/icons/Rose.svg";
 import TomsFlowersNoRose from "../../../assets/images/TomsFlowersNoRose.svg";
 import { motion } from "framer-motion";

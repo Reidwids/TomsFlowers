@@ -1,6 +1,5 @@
-import React from "react";
-import LandingAnimation from "./Components/LandingAnimation";
-import LandingBody from "./Components/LandingBody";
+import LandingAnimation from "./Components/LayoutAnimation";
+import LandingBody from "./Components/LayoutBody";
 import { useMediaQuery } from "@chakra-ui/react";
 
 export default function Landing() {

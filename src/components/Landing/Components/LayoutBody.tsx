@@ -3,17 +3,16 @@ import {
   Collapse,
   Flex,
   IconButton,
-  Link,
   Stack,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { theme } from "../../../App";
-import "./LandingBody.scss";
+import "./LayoutBody.scss";
+import Home from "../../Home/Home";
 type PropTypes = {
   isDesktop: boolean;
 };
@@ -49,9 +48,9 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                   fontWeight: "600",
                 }}
                 className="hover-underline-animation"
-                onClick={() => navigate("#About")}
+                onClick={() => navigate("#Gallery")}
               >
-                About
+                Gallery
               </Text>
               <Text
                 _hover={{
@@ -127,6 +126,7 @@ export default function LandingBody({ isDesktop }: PropTypes) {
               </Collapse>
             </>
           )}
+          <Home />
         </motion.div>
       </Box>
     </Flex>
