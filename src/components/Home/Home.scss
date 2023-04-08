@@ -1,0 +1,36 @@
+.frame {
+  background-color: #fff;
+  border: solid 25px #eee;
+  border-bottom-color: #99666c;
+  border-left-color: #8d5a64;
+  border-radius: 2px;
+  border-right-color: #8d5a64;
+  border-top-color: #81525c;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset,
+    0 5px 10px 5px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 2%;
+  position: relative;
+  text-align: center;
+  &:before {
+    border-radius: 2px;
+    bottom: -10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+    content: "";
+    left: -10px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+  &:after {
+    border-radius: 2px;
+    bottom: -15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    content: "";
+    left: -15px;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+  }
+}
