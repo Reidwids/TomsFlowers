@@ -12,6 +12,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import { theme } from "../../../App";
 import "./LayoutBody.scss";
+import { HashLink } from "react-router-hash-link";
 import Home from "../../Home/Home";
 type PropTypes = {
   isDesktop: boolean;
@@ -50,16 +51,19 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                 className="hover-underline-animation"
                 onClick={() => navigate("#Gallery")}
               >
-                Gallery
+                <HashLink smooth to="#Gallery">
+                  Gallery
+                </HashLink>
               </Text>
               <Text
                 _hover={{
                   fontWeight: "600",
                 }}
                 className="hover-underline-animation"
-                onClick={() => navigate("#LocationHours")}
               >
-                Location & Hours
+                <HashLink smooth to="#Location">
+                  Location & Hours
+                </HashLink>
               </Text>
             </Flex>
           ) : (
@@ -112,14 +116,17 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                       py={2}
                       cursor={"pointer"}
                       zIndex={3}
-                      onClick={() => navigate("#LocationHours")}
                       justify={"space-between"}
                       align={"center"}
                       _hover={{
                         textDecoration: "none",
                       }}
                     >
-                      <Text fontWeight={600}>Location & Hours</Text>
+                      <Text fontWeight={600}>
+                        <HashLink smooth to="#Location">
+                          Location & Hours
+                        </HashLink>
+                      </Text>
                     </Flex>
                   </Stack>
                 </Stack>

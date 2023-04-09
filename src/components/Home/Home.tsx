@@ -91,69 +91,80 @@ export default function Home() {
           />
         </div>
       </Flex>
-      <a
-        href="#LocationHours"
-        style={{ cursor: "default", width: "100%", maxWidth: "1000px" }}
+      <Flex
+        mt="80px"
+        flexDir={"column"}
+        mb="40px"
+        id={"Location"}
+        w="100%"
+        maxW={"1000px"}
       >
-        <Flex mt="80px" flexDir={"column"} mb="40px">
-          <Text textAlign={"center"} fontSize="4xl">
-            Location & Hours
-          </Text>
-          <Flex flexDir={"row"} justify="space-around" mt="30px">
+        <Text textAlign={"center"} fontSize="4xl">
+          Location & Hours
+        </Text>
+        <Flex flexDir={"row"} justify="space-around" mt="30px">
+          <Flex flexDir={"column"}>
             <Flex flexDir={"column"}>
-              <Flex flexDir={"column"}>
-                <Text fontSize={"2xl"}>Location</Text>
-                <Text>1863 Eglinton Ave W</Text>
-                <Text>York, ON</Text>
-                <Text>M6E 3X2</Text>
-              </Flex>
-              <br />
-              <Flex flexDir={"column"}>
-                <Text fontSize={"2xl"}>Hours of Operation</Text>
-                <Text fontWeight={"bold"}>Monday - Saturday</Text>
-                <Text>9:30 AM : 6:00 PM</Text>
-                <Text fontWeight={"bold"}>Sunday</Text>
-                <Text>9:30 AM : 3:00 PM</Text>
-              </Flex>
+              <Text fontSize={"2xl"}>Location</Text>
+              <Text>1863 Eglinton Ave W</Text>
+              <Text>York, ON</Text>
+              <Text>M6E 3X2</Text>
             </Flex>
-            <iframe
-              title={"Toms Flowers Location"}
-              width="400px"
-              height="300px"
-              style={{ border: "0" }}
-              loading="lazy"
-              src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJpRHGqO0zK4gR4P-QURCgnw0&key=${process.env.REACT_APP_GMAPS_KEY}`}
-            ></iframe>
+            <br />
+            <Flex flexDir={"column"}>
+              <Text fontSize={"2xl"}>Hours of Operation</Text>
+              <Text fontWeight={"bold"}>Monday - Saturday</Text>
+              <Text>9:30 AM : 6:00 PM</Text>
+              <Text fontWeight={"bold"}>Sunday</Text>
+              <Text>9:30 AM : 3:00 PM</Text>
+            </Flex>
           </Flex>
+          <iframe
+            title={"Toms Flowers Location"}
+            width="400px"
+            height="300px"
+            style={{ border: "0" }}
+            loading="lazy"
+            src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJpRHGqO0zK4gR4P-QURCgnw0&key=${process.env.REACT_APP_GMAPS_KEY}`}
+          ></iframe>
         </Flex>
-      </a>
-      <a
-        href="#LocationHours"
-        style={{ cursor: "default", width: "100%", maxWidth: "1000px" }}
+      </Flex>
+      <Box mt="20px" maxW="600px">
+        Contact us by phone at&nbsp;
+        <span style={{ fontWeight: "bold" }}>(416) 939-9279</span> or come by
+        and see us with any questions, comments, or special requests. Whether
+        you need help selecting the perfect bouquet or have questions about
+        caring for your houseplants, we'll be happy to assist you!
+      </Box>
+      <Flex
+        mt="40px"
+        flexDir={"column"}
+        mb="40px"
+        align={"center"}
+        w="100%"
+        maxW={"1000px"}
       >
-        <Flex mt="40px" flexDir={"column"} mb="40px" align={"center"}>
-          <Text textAlign={"center"} fontSize="4xl">
-            Gallery
-          </Text>
-          <Flex flexWrap={"wrap"} justify="center">
-            {imgArr.map((img) => {
-              return (
-                <Box
-                  w="250px"
-                  h="250px"
-                  m="10px"
-                  borderRadius={"10px"}
-                  bgImage={img}
-                  bgPosition="center"
-                  bgRepeat="no-repeat"
-                  bgSize={"cover"}
-                  objectFit={"none"}
-                ></Box>
-              );
-            })}
-          </Flex>
+        <Text textAlign={"center"} fontSize="4xl" id={"Gallery"}>
+          Gallery
+        </Text>
+        <Flex flexWrap={"wrap"} justify="center">
+          {imgArr.map((img) => {
+            return (
+              <Box
+                w="250px"
+                h="250px"
+                m="10px"
+                borderRadius={"10px"}
+                bgImage={img}
+                bgPosition="center"
+                bgRepeat="no-repeat"
+                bgSize={"cover"}
+                objectFit={"none"}
+              ></Box>
+            );
+          })}
         </Flex>
-      </a>
+      </Flex>
     </Flex>
   );
 }
