@@ -109,7 +109,9 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                         textDecoration: "none",
                       }}
                     >
-                      <Text fontWeight={600}>About</Text>
+                      <HashLink smooth to="#Gallery">
+                        Gallery
+                      </HashLink>
                     </Flex>
                     <hr color={theme.colors.flowerPink} />
                     <Flex
@@ -122,7 +124,7 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                         textDecoration: "none",
                       }}
                     >
-                      <Text fontWeight={600}>
+                      <Text>
                         <HashLink smooth to="#Location">
                           Location & Hours
                         </HashLink>

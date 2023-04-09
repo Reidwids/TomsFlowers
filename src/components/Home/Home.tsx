@@ -30,22 +30,39 @@ const imgArr = [
 
 export default function Home() {
   return (
-    <Flex marginY={"60px"} align={"center"} flexDir="column">
-      <Flex maxWidth={"1000px"} flexDir={"row"} justify="center">
-        <div
+    <Flex
+      marginY={{ base: "20px", md: "60px" }}
+      align={"center"}
+      flexDir={"column"}
+    >
+      <Flex
+        maxWidth={"1000px"}
+        flexDir={{ base: "column", md: "row" }}
+        justify="center"
+        align={{ base: "center", md: "start" }}
+      >
+        <Box
           className="frame"
-          style={{
-            transform: "rotate(-10deg)",
-          }}
+          transform={{ md: "rotate(-10deg)" }}
+          p={{ base: "10px", md: "15px" }}
+          w="max-content"
         >
           <Image
-            width={{ sm: "200px", lg: "400px" }}
+            w={{ base: "200px", md: "400px" }}
             src={storeFront}
             alt="Toms flowers storefront"
           />
-        </div>
-        <Box minW="500px" ml="40px">
-          <Text fontSize={"4xl"}>Your community garden center</Text>
+        </Box>
+        <Box
+          minW={{ md: "500px" }}
+          ml={{ md: "40px" }}
+          mt={{ base: "15px", md: "0" }}
+          px={{ base: "10px", md: "0" }}
+          textAlign={{ base: "center", md: "left" }}
+        >
+          <Text fontSize={{ base: "3xl", md: "4xl" }}>
+            Your community garden center
+          </Text>
           <Box ml="10px">
             <Text>
               At Tom's Flowers and Gifts, we pride ourselves on being a small,
@@ -63,9 +80,23 @@ export default function Home() {
           </Box>
         </Box>
       </Flex>
-      <Flex maxWidth={"1000px"} flexDir={"row"} mt="60px">
-        <Box minW="500px" mr="40px">
-          <Text fontSize={"4xl"}>Not just a flower shop</Text>
+      <Flex
+        maxWidth={"1000px"}
+        flexDir={{ base: "column-reverse", md: "row" }}
+        justify="center"
+        align={"center"}
+        mt={{ base: "30px", md: "0" }}
+      >
+        <Box
+          minW={{ md: "500px" }}
+          ml={{ md: "40px" }}
+          mt={{ base: "15px", md: "0" }}
+          px={{ base: "10px", md: "0" }}
+          textAlign={{ base: "center", md: "left" }}
+        >
+          <Text fontSize={{ base: "3xl", md: "4xl" }}>
+            Not just a flower shop
+          </Text>
           <Box ml="10px">
             <Text>
               We're not only a flower shop - we're a one-stop-shop for all your
@@ -78,32 +109,38 @@ export default function Home() {
             </Text>
           </Box>
         </Box>
-        <div
+        <Box
           className="frame"
-          style={{
-            transform: "rotate(10deg)",
-          }}
+          transform={{ md: "rotate(10deg)" }}
+          p={{ base: "10px", md: "15px" }}
+          w="max-content"
         >
           <Image
-            width={{ sm: "400px", lg: "800px" }}
+            width={{ base: "300px", md: "800px" }}
             src={gardenPlants}
             alt="Garden plants"
           />
-        </div>
+        </Box>
       </Flex>
       <Flex
-        mt="80px"
         flexDir={"column"}
         mb="40px"
         id={"Location"}
         w="100%"
         maxW={"1000px"}
+        mt={{ base: "40px", md: "80px" }}
+        px={{ base: "20px", md: "0" }}
       >
-        <Text textAlign={"center"} fontSize="4xl">
+        <Text textAlign={"center"} fontSize={{ base: "3xl", md: "4xl" }}>
           Location & Hours
         </Text>
-        <Flex flexDir={"row"} justify="space-around" mt="30px">
-          <Flex flexDir={"column"}>
+        <Flex
+          flexDir={{ base: "column", md: "row" }}
+          justify="space-around"
+          mt={{ base: "10px", md: "30px" }}
+          textAlign={{ base: "center", md: "left" }}
+        >
+          <Flex flexDir={{ base: "row", md: "column" }} justify="space-between">
             <Flex flexDir={"column"}>
               <Text fontSize={"2xl"}>Location</Text>
               <Text>1863 Eglinton Ave W</Text>
@@ -119,17 +156,23 @@ export default function Home() {
               <Text>9:30 AM : 3:00 PM</Text>
             </Flex>
           </Flex>
-          <iframe
-            title={"Toms Flowers Location"}
-            width="400px"
-            height="300px"
-            style={{ border: "0" }}
-            loading="lazy"
-            src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJpRHGqO0zK4gR4P-QURCgnw0&key=${process.env.REACT_APP_GMAPS_KEY}`}
-          ></iframe>
+          <Box
+            w={{ base: "100%", md: "400px" }}
+            h={{ base: "250px", md: "300px" }}
+            mt={{ base: "15px", md: "0" }}
+          >
+            <iframe
+              title={"Toms Flowers Location"}
+              width="100%"
+              height="100%"
+              style={{ border: "0" }}
+              loading="lazy"
+              src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJpRHGqO0zK4gR4P-QURCgnw0&key=${process.env.REACT_APP_GMAPS_KEY}`}
+            ></iframe>
+          </Box>
         </Flex>
       </Flex>
-      <Box mt="20px" maxW="600px">
+      <Box mt={{ md: "20px" }} maxW="600px" px={{ base: "20px", md: "0" }}>
         Contact us by phone at&nbsp;
         <span style={{ fontWeight: "bold" }}>(416) 939-9279</span> or come by
         and see us with any questions, comments, or special requests. Whether
@@ -144,15 +187,19 @@ export default function Home() {
         w="100%"
         maxW={"1000px"}
       >
-        <Text textAlign={"center"} fontSize="4xl" id={"Gallery"}>
+        <Text
+          textAlign={"center"}
+          fontSize={{ base: "3xl", md: "4xl" }}
+          id={"Gallery"}
+        >
           Gallery
         </Text>
         <Flex flexWrap={"wrap"} justify="center">
           {imgArr.map((img) => {
             return (
               <Box
-                w="250px"
-                h="250px"
+                w={{ base: "150px", md: "250px" }}
+                h={{ base: "150px", md: "250px" }}
                 m="10px"
                 borderRadius={"10px"}
                 bgImage={img}
