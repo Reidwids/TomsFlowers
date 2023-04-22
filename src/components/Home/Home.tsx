@@ -42,6 +42,7 @@ export default function Home() {
         align={{ base: "center", md: "start" }}
       >
         <Box
+          ml={{ md: "30px" }}
           className="frame"
           transform={{ md: "rotate(-10deg)" }}
           p={{ base: "10px", md: "15px" }}
@@ -54,16 +55,19 @@ export default function Home() {
           />
         </Box>
         <Box
-          minW={{ md: "500px" }}
+          // minW={{ md: "500px" }}
           ml={{ md: "40px" }}
           mt={{ base: "15px", md: "0" }}
           px={{ base: "10px", md: "0" }}
           textAlign={{ base: "center", md: "left" }}
         >
-          <Text fontSize={{ base: "3xl", md: "4xl" }}>
+          <Text
+            fontSize={{ base: "3xl", md: "4xl" }}
+            lineHeight={{ base: "35px", md: "auto" }}
+          >
             Your community garden center
           </Text>
-          <Box ml="10px">
+          <Box ml="10px" mt="10px">
             <Text>
               At Tom's Flowers and Gifts, we pride ourselves on being a small,
               family-owned business that puts our heart and soul into every
@@ -85,10 +89,9 @@ export default function Home() {
         flexDir={{ base: "column-reverse", md: "row" }}
         justify="center"
         align={"center"}
-        mt={{ base: "30px", md: "0" }}
+        mt={{ base: "30px", md: "30px" }}
       >
         <Box
-          minW={{ md: "500px" }}
           ml={{ md: "40px" }}
           mt={{ base: "15px", md: "0" }}
           px={{ base: "10px", md: "0" }}
@@ -97,7 +100,7 @@ export default function Home() {
           <Text fontSize={{ base: "3xl", md: "4xl" }}>
             Not just a flower shop
           </Text>
-          <Box ml="10px">
+          <Box ml="10px" mt="10px">
             <Text>
               We're not only a flower shop - we're a one-stop-shop for all your
               gardening needs.
@@ -113,10 +116,12 @@ export default function Home() {
           className="frame"
           transform={{ md: "rotate(10deg)" }}
           p={{ base: "10px", md: "15px" }}
+          mr={{ md: "30px" }}
+          ml={{ base: "10px", lg: "20px" }}
           w="max-content"
         >
           <Image
-            width={{ base: "300px", md: "800px" }}
+            maxWidth={{ base: "300px", lg: "400px" }}
             src={gardenPlants}
             alt="Garden plants"
           />
@@ -128,7 +133,7 @@ export default function Home() {
         id={"Location"}
         w="100%"
         maxW={"1000px"}
-        mt={{ base: "40px", md: "80px" }}
+        mt={{ base: "30px", md: "80px" }}
         px={{ base: "20px", md: "0" }}
       >
         <Text textAlign={"center"} fontSize={{ base: "3xl", md: "4xl" }}>
@@ -140,20 +145,23 @@ export default function Home() {
           mt={{ base: "10px", md: "30px" }}
           textAlign={{ base: "center", md: "left" }}
         >
-          <Flex flexDir={{ base: "row", md: "column" }} justify="space-between">
-            <Flex flexDir={"column"}>
-              <Text fontSize={"2xl"}>Location</Text>
-              <Text>1863 Eglinton Ave W</Text>
-              <Text>York, ON</Text>
-              <Text>M6E 3X2</Text>
-            </Flex>
-            <br />
+          <Flex
+            flexDir={{ base: "column", md: "column" }}
+            justify="space-around"
+          >
             <Flex flexDir={"column"}>
               <Text fontSize={"2xl"}>Hours of Operation</Text>
               <Text fontWeight={"bold"}>Monday - Saturday</Text>
               <Text>9:30 AM : 6:00 PM</Text>
               <Text fontWeight={"bold"}>Sunday</Text>
               <Text>9:30 AM : 3:00 PM</Text>
+            </Flex>
+            <br />
+            <Flex flexDir={"column"}>
+              <Text fontSize={"2xl"}>Location</Text>
+              <Text>1863 Eglinton Ave W</Text>
+              <Text>York, ON</Text>
+              <Text>M6E 3X2</Text>
             </Flex>
           </Flex>
           <Box
@@ -172,7 +180,12 @@ export default function Home() {
           </Box>
         </Flex>
       </Flex>
-      <Box mt={{ md: "20px" }} maxW="600px" px={{ base: "20px", md: "0" }}>
+      <Box
+        mt={{ md: "20px" }}
+        maxW="600px"
+        px={{ base: "20px", md: "0" }}
+        textAlign={{ base: "center", md: "left" }}
+      >
         Contact us by phone at&nbsp;
         <span style={{ fontWeight: "bold" }}>(416) 939-9279</span> or come by
         and see us with any questions, comments, or special requests. Whether
@@ -180,7 +193,7 @@ export default function Home() {
         caring for your houseplants, we'll be happy to assist you!
       </Box>
       <Flex
-        mt="40px"
+        mt={{ base: "30px", md: "40px" }}
         flexDir={"column"}
         mb="40px"
         align={"center"}
