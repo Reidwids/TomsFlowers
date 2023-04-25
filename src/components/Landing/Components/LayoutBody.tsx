@@ -7,12 +7,10 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import { theme } from "../../../App";
 import "./LayoutBody.scss";
-import { HashLink } from "react-router-hash-link";
 import Home from "../../Home/Home";
 import { useRef } from "react";
 type PropTypes = {
@@ -20,7 +18,6 @@ type PropTypes = {
 };
 
 export default function LandingBody({ isDesktop }: PropTypes) {
-  const navigate = useNavigate();
   const galleryRef = useRef<HTMLInputElement>(null);
   const locationRef = useRef<HTMLInputElement>(null);
   const { isOpen, onToggle } = useDisclosure();
@@ -101,21 +98,19 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                   display={isDesktop ? "none" : "block"}
                   bg="white"
                 >
-                  <Stack spacing={3} onClick={onToggle}>
+                  <Stack spacing={3}>
                     <Flex
                       py={2}
                       zIndex={3}
-                      onClick={() => navigate("#About")}
                       cursor={"pointer"}
                       justify={"space-between"}
+                      onClick={() => scrollToRef(galleryRef)}
                       align={"center"}
                       _hover={{
                         textDecoration: "none",
                       }}
                     >
-                      <HashLink smooth to="#Gallery">
-                        Gallery
-                      </HashLink>
+                      Gallery
                     </Flex>
                     <hr color={theme.colors.flowerPink} />
                     <Flex
@@ -123,16 +118,13 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                       cursor={"pointer"}
                       zIndex={3}
                       justify={"space-between"}
+                      onClick={() => scrollToRef(locationRef)}
                       align={"center"}
                       _hover={{
                         textDecoration: "none",
                       }}
                     >
-                      <Text>
-                        <HashLink smooth to="#Location">
-                          Location & Hours
-                        </HashLink>
-                      </Text>
+                      <Text>Location & Hours</Text>
                     </Flex>
                   </Stack>
                 </Stack>

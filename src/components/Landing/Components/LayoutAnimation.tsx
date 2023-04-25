@@ -45,6 +45,7 @@ export default function LandingAnimation({ isDesktop }: PropTypes) {
       <motion.div
         style={{
           position: "absolute",
+          // position: "fixed",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
