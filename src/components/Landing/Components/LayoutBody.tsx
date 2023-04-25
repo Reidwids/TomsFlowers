@@ -14,13 +14,20 @@ import { theme } from "../../../App";
 import "./LayoutBody.scss";
 import { HashLink } from "react-router-hash-link";
 import Home from "../../Home/Home";
+import { useRef } from "react";
 type PropTypes = {
   isDesktop: boolean;
 };
 
 export default function LandingBody({ isDesktop }: PropTypes) {
   const navigate = useNavigate();
+  const galleryRef = useRef<HTMLInputElement>(null);
+  const locationRef = useRef<HTMLInputElement>(null);
   const { isOpen, onToggle } = useDisclosure();
+
+  const scrollToRef = (ref: React.RefObject<HTMLInputElement>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <Flex h="100vh" bgColor="white" w="100%" justify={"center"}>
@@ -49,21 +56,18 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                   fontWeight: "600",
                 }}
                 className="hover-underline-animation"
-                onClick={() => navigate("#Gallery")}
+                onClick={() => scrollToRef(galleryRef)}
               >
-                <HashLink smooth to="#Gallery">
-                  Gallery
-                </HashLink>
+                Gallery
               </Text>
               <Text
                 _hover={{
                   fontWeight: "600",
                 }}
                 className="hover-underline-animation"
+                onClick={() => scrollToRef(locationRef)}
               >
-                <HashLink smooth to="#Location">
-                  Location & Hours
-                </HashLink>
+                Location & Hours
               </Text>
             </Flex>
           ) : (
@@ -135,7 +139,7 @@ export default function LandingBody({ isDesktop }: PropTypes) {
               </Collapse>
             </>
           )}
-          <Home />
+          <Home locationRef={locationRef} galleryRef={galleryRef} />
         </motion.div>
       </Box>
     </Flex>

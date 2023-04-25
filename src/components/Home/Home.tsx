@@ -28,7 +28,11 @@ const imgArr = [
   img14,
 ];
 
-export default function Home() {
+type PropTypes = {
+  galleryRef: React.RefObject<HTMLInputElement>;
+  locationRef: React.RefObject<HTMLInputElement>;
+};
+export default function Home({ galleryRef, locationRef }: PropTypes) {
   return (
     <Flex
       marginY={{ base: "20px", md: "60px" }}
@@ -130,7 +134,7 @@ export default function Home() {
       <Flex
         flexDir={"column"}
         mb="40px"
-        id={"Location"}
+        ref={locationRef}
         w="100%"
         maxW={"1000px"}
         mt={{ base: "30px", md: "80px" }}
@@ -196,15 +200,12 @@ export default function Home() {
         mt={{ base: "30px", md: "40px" }}
         flexDir={"column"}
         mb="40px"
+        ref={galleryRef}
         align={"center"}
         w="100%"
         maxW={"1000px"}
       >
-        <Text
-          textAlign={"center"}
-          fontSize={{ base: "3xl", md: "4xl" }}
-          id={"Gallery"}
-        >
+        <Text textAlign={"center"} fontSize={{ base: "3xl", md: "4xl" }}>
           Gallery
         </Text>
         <Flex flexWrap={"wrap"} justify="center">
