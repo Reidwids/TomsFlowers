@@ -24,7 +24,7 @@
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://reidwids.github.io/TomsFlowers",
+  "homepage": "https://www.toms-flowers.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
