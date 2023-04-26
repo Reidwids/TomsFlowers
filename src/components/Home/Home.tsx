@@ -192,7 +192,7 @@ export default function Home({
         flexDir={"column"}
         w="100%"
         maxW={"800px"}
-        mt={{ base: "30px", md: "30px" }}
+        mt={{ base: "30px", md: "50px" }}
         px={{ base: "20px", md: "0" }}
         ref={contactRef}
       >
