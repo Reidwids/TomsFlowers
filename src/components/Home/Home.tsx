@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, VStack } from "@chakra-ui/react";
 import "./Home.scss";
 import storeFront from "../../assets/images/TomsFlowers1.jpg";
 import gardenPlants from "../../assets/images/TomsFlowers2.png";
@@ -31,8 +31,13 @@ const imgArr = [
 type PropTypes = {
   galleryRef: React.RefObject<HTMLInputElement>;
   locationRef: React.RefObject<HTMLInputElement>;
+  contactRef: React.RefObject<HTMLInputElement>;
 };
-export default function Home({ galleryRef, locationRef }: PropTypes) {
+export default function Home({
+  galleryRef,
+  locationRef,
+  contactRef,
+}: PropTypes) {
   return (
     <Flex
       marginY={{ base: "20px", md: "60px" }}
@@ -132,9 +137,8 @@ export default function Home({ galleryRef, locationRef }: PropTypes) {
         </Box>
       </Flex>
       <Flex
-        flexDir={"column"}
-        mb="40px"
         ref={locationRef}
+        flexDir={"column"}
         w="100%"
         maxW={"1000px"}
         mt={{ base: "30px", md: "80px" }}
@@ -184,20 +188,27 @@ export default function Home({ galleryRef, locationRef }: PropTypes) {
           </Box>
         </Flex>
       </Flex>
-      <Box
-        mt={{ md: "20px" }}
-        maxW="600px"
+      <VStack
+        flexDir={"column"}
+        w="100%"
+        maxW={"800px"}
+        mt={{ base: "30px", md: "30px" }}
         px={{ base: "20px", md: "0" }}
-        textAlign={{ base: "center", md: "left" }}
+        ref={contactRef}
       >
-        Contact us by phone at&nbsp;
-        <span style={{ fontWeight: "bold" }}>(416) 939-9279</span> or come by
-        and see us with any questions, comments, or special requests. Whether
-        you need help selecting the perfect bouquet or have questions about
-        caring for your houseplants, we'll be happy to assist you!
-      </Box>
+        <Text textAlign={"center"} fontSize={{ base: "3xl", md: "4xl" }}>
+          Contact
+        </Text>
+        <Box textAlign={"center"}>
+          Contact us by phone at&nbsp;
+          <span style={{ fontWeight: "bold" }}>(416) 939-9279</span> or come by
+          and see us with any questions, comments, or special requests. Whether
+          you need help selecting the perfect bouquet or have questions about
+          caring for your houseplants, we'll be happy to assist you!
+        </Box>
+      </VStack>
       <Flex
-        mt={{ base: "30px", md: "40px" }}
+        mt={{ base: "30px", md: "50px" }}
         flexDir={"column"}
         mb="40px"
         ref={galleryRef}
@@ -212,6 +223,7 @@ export default function Home({ galleryRef, locationRef }: PropTypes) {
           {imgArr.map((img) => {
             return (
               <Box
+                key={img}
                 w={{ base: "150px", md: "250px" }}
                 h={{ base: "150px", md: "250px" }}
                 m="10px"

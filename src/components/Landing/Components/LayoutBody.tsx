@@ -19,6 +19,7 @@ type PropTypes = {
 
 export default function LandingBody({ isDesktop }: PropTypes) {
   const galleryRef = useRef<HTMLInputElement>(null);
+  const contactRef = useRef<HTMLInputElement>(null);
   const locationRef = useRef<HTMLInputElement>(null);
   const { isOpen, onToggle } = useDisclosure();
 
@@ -126,12 +127,30 @@ export default function LandingBody({ isDesktop }: PropTypes) {
                     >
                       <Text>Location & Hours</Text>
                     </Flex>
+                    <hr color={theme.colors.flowerPink} />
+                    <Flex
+                      py={2}
+                      cursor={"pointer"}
+                      zIndex={3}
+                      justify={"space-between"}
+                      onClick={() => scrollToRef(contactRef)}
+                      align={"center"}
+                      _hover={{
+                        textDecoration: "none",
+                      }}
+                    >
+                      <Text>Contact</Text>
+                    </Flex>
                   </Stack>
                 </Stack>
               </Collapse>
             </>
           )}
-          <Home locationRef={locationRef} galleryRef={galleryRef} />
+          <Home
+            locationRef={locationRef}
+            galleryRef={galleryRef}
+            contactRef={contactRef}
+          />
         </motion.div>
       </Box>
     </Flex>
